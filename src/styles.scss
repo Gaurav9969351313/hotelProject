@@ -1,13 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "styles/_variables.scss";
-<<<<<<< HEAD
-=======
 
 html, body, p {
     color:$main-text-color;
 }
-
 // Rental Listing css starts here
 #rentalListing {
     .title{
@@ -39,4 +36,4 @@ html, body, p {
         }
     }
 }
->>>>>>> feature/rental-component-listing
+
