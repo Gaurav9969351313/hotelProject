@@ -1,0 +1,36 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 8.x'
+  inputs:
+    versionSpec: 8.x
+    checkLatest: true
+
+- task: Npm@1
+  displayName: 'Installing Angular Cli '
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install -g @angular/cli'
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+- task: Npm@1
+  displayName: Build
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'run build'
+
+- task: jean-marc-ducasse.sftpupload.sftp-upload.sftpupload@1
+  displayName: 'SFTP mahindragroupsft.mahindra.com'
+  inputs:
+    sourceFolder: dist
+    targetFolder: GauravTalele
+    host: mahindragroupsft.mahindra.com
+    username: 203442
+    password: 'pass,123'
