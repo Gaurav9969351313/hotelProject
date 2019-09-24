@@ -1,13 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from "@angular/http";
+import { Routes, RouterModule } from '@angular/router';
 
+import { AppLoadModule } from './shared/app-load/app-load.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { RentalModule } from "./rental/rental.module";
+
+import { HttpService } from "./shared/http.service";
+import { LoggerService } from "./shared/logger.service";
 import { HeaderComponent } from './header/header.component';
 
-import {  RentalModule } from "./rental/rental.module";
-import { Routes, RouterModule } from '@angular/router';
 import { RentalComponent } from './rental/rental.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/rentals', pathMatch: 'full' },
@@ -21,11 +26,14 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AppLoadModule,
     RentalModule,
+    HttpModule,
     RouterModule.forRoot(routes),
-    AppRoutingModule
+    AppRoutingModule,
+   
   ],
-  providers: [],
+  providers: [HttpService,LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

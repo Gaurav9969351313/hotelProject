@@ -1,11 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
 @import "styles/_variables.scss";
 
 html, body, p {
     color:$main-text-color;
 }
-// Rental Listing css starts here
+
+.apartment {
+    color: #a72da3;
+  }
+  
+  .condo {
+    color: #d68000;
+  }
+  
+  .house {
+    color: #bf1818;
+  }
+  
+
 #rentalListing {
     .title{
         font-size: 30px;
@@ -20,8 +34,7 @@ html, body, p {
             padding-top: 8px;
             font-weight: 500;
             font-size: 12px;
-            // text-transform: uppercase;
-            color: #16861a;
+            text-transform: uppercase;
         }
         .card-title{
             font-size: 19px;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RentalService } from '../shared/rental.service';
 import { Rental } from '../shared/rental.model';
+import { HttpService } from '../../shared/http.service';
 
 @Component({
   selector: 'app-rental-list',
@@ -9,21 +9,20 @@ import { Rental } from '../shared/rental.model';
 })
 export class RentalListComponent implements OnInit {
 
-  arrRentals:Rental[] = [];
+  arrRentals: Rental[] = [];
 
-  constructor(private rentalService:RentalService) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.rentalService.getRentals().subscribe((data:Rental[])=>{
-        this.arrRentals = data;
+    return this.httpService.get('/rentals').subscribe((data) => {
+      console.log(data);
+      this.arrRentals = data;
     },
-    (err)=>{
+      (err) => {
 
-    },
-    ()=>{
+      },
+      () => {
 
-    });
-}
-
-
+      });
+  }
 }

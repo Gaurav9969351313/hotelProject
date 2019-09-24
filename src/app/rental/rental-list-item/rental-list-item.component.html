@@ -1,8 +1,8 @@
-<a href="/rentals/{{rentalData?.id}}">
+<a href="/rentals/{{rentalData?._id}}">
   <div class="card bwm-card">
-    <img class="card-img-top" src="http://via.placeholder.com/350x250">
+    <img class="card-img-top" [src]="rentalData?.image">
     <div class="card-block">
-      <h6 class="card-subtitle">{{rentalData?.subtitle}}</h6>
+      <h6 class="card-subtitle">{{rentalData?.category}} >> {{ rentalData?.city }}</h6>
       <h4 class="card-title">{{rentalData?.title}}</h4>
       <p class="card-text">{{rentalData?.text}}</p>
       <a href="#" class="card-link">More Info</a>
